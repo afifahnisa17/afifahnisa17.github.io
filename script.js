@@ -10,9 +10,9 @@ function show(id) {
 // 2. Typed.js - AI/Data Roles
 new Typed('#typed', {
     strings: [
-        'AI/ML ENGINEER INTERN',
+        'AI/ML ENGINEER',
         'DATA ANALYST',
-        'BACKEND DEVELOPER'
+        'BACKEND WEB DEVELOPER'
     ],
     typeSpeed: 60,
     backSpeed: 40,

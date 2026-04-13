@@ -144,15 +144,18 @@ body {
 /* --- 6. PROJECTS & EXPERIENCE (Pisah) --- */
 .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .dense-card, .org-card {
+    display:block;
     background: var(--card-bg);
     padding: 20px;
     border: 2px solid var(--text);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: inherit;
 }
 .dense-card:hover { 
     transform: translateY(-8px); 
     border-color: var(--accent); 
-    box-shadow: 6px 6px 0px var(--text); 
+    box-shadow: 8px 8px 0px var(--text);
 }
 .tag { color: var(--accent); font-size: 0.75rem; font-weight: bold; }
 .card-list { list-style: none; margin: 15px 0; font-size: 0.8rem; line-height: 1.5; }
