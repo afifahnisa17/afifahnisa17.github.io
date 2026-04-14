@@ -177,7 +177,6 @@ body {
 
 
 /* --- 4. MAIN WINDOW --- */
-/* WADAH UTAMA: Tetap diam, tapi mengizinkan isi di dalamnya scroll */
 .main-window {
     flex: 1;
     margin-left: 15px;
@@ -186,10 +185,10 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(26, 60, 52, 0.1);
     
-    display: block; /* Agar konten bisa memanjang */
-    overflow-y: auto; /* Izinkan scroll vertikal */
-    height: calc(100vh - 30px); /* Tinggi pas layar */
-    padding: 0 8%; /* Padding samping saja */
+    display: block; 
+    overflow-y: auto; 
+    height: calc(100vh - 30px); 
+    padding: 0 8%; 
     position: relative;
     z-index: 1;
     scroll-behavior: smooth;
@@ -204,14 +203,12 @@ body {
     align-items: flex-start;
 }
 
-/* SECTION LAIN (Project, Cert, Org): Mulai dari atas dan bisa memanjang */
 .section:not(#home) {
     min-height: 100%; 
-    padding: 80px 0; /* Jarak atas bawah agar tidak mepet saat scroll */
-    display: none; /* Default sembunyi, diatur JS */
+    padding: 80px 0; 
+    display: none; 
 }
 
-/* Scrollbar Minimalis */
 .main-window::-webkit-scrollbar {
     width: 6px;
 }
@@ -374,3 +371,116 @@ body {
     color: var(--bg);
     box-shadow: 4px 4px 0px var(--accent);
 }
+
+/* --- RESPONSIVE DESIGN (Mobile & Tablet) --- */
+@media (max-width: 768px) {
+    /* 1. Ubah susunan shell dari samping ke atas-bawah */
+    .app-shell {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    /* 2. Ubah Sidebar jadi Navbar Bawah */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row; /* Ikon berjejer ke samping */
+        padding: 10px 20px;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        margin: 0 10px;
+        width: calc(100% - 20px);
+        justify-content: space-around;
+    }
+
+    /* Sembunyikan Logo AK di mobile agar tidak sesak */
+    .logo { display: none; }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 0;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .footer-contacts {
+        display: none; /* Sembunyikan kontak di navbar bawah agar tidak penuh */
+    }
+
+    /* 3. Sesuaikan Jendela Utama */
+    .main-window {
+        flex: 1;
+        margin-left: 15px;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(26, 60, 52, 0.1);
+        
+        height: calc(100vh - 30px); 
+        position: relative;
+        /* Hilangkan scroll utama di sini agar tidak double scroll */
+        overflow: hidden; 
+        z-index: 1;
+    }
+
+    /* Base style untuk semua section */
+    .section {
+        width: 100%;
+        height: 100%; /* Paksa section memenuhi main-window */
+        padding: 0 8%;
+        display: none; /* Default sembunyi */
+    }
+
+    /* KHUSUS HOME: Statis, Tengah, No Scroll */
+    #home {
+        display: flex; /* Akan diatur via JS */
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden; /* Anti scroll untuk beranda */
+    }
+
+    /* KHUSUS HALAMAN LAIN: Bisa scroll kalau kontennya luber */
+    #project, #cert, #org {
+        overflow-y: auto; /* Scroll hanya aktif di sini */
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    /* Custom Scrollbar untuk halaman yang bisa di-scroll */
+    #project::-webkit-scrollbar, 
+    #cert::-webkit-scrollbar, 
+    #org::-webkit-scrollbar {
+        width: 6px;
+    }
+    #project::-webkit-scrollbar-thumb, 
+    #cert::-webkit-scrollbar-thumb, 
+    #org::-webkit-scrollbar-thumb {
+        background: var(--text);
+        border-radius: 10px;
+    }
+
+        /* 4. Tipografi & Grid */
+        .pixel-title {
+            font-size: 2.5rem; 
+        }
+
+        .grid-container {
+            grid-template-columns: 1fr; /* Project jadi satu kolom */
+        }
+
+        /* 5. Matikan Tooltip di Mobile */
+        /* Tooltip mengganggu di layar sentuh */
+        .nav-btn::after, .footer-contacts a::after {
+            display: none !important;
+        }
+        
+        /* Matikan Custom Cursor di Mobile */
+        #custom-cursor {
+            display: none !important;
+        }
+        * { cursor: auto !important; }
+    }
