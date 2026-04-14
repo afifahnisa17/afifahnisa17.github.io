@@ -93,6 +93,7 @@ body {
 .footer-contacts a:hover { color: var(--accent); }
 
 /* --- 4. MAIN WINDOW --- */
+/* WADAH UTAMA: Tetap diam, tapi mengizinkan isi di dalamnya scroll */
 .main-window {
     flex: 1;
     margin-left: 15px;
@@ -100,10 +101,42 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 12px;
     border: 1px solid rgba(26, 60, 52, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
+    
+    display: block; /* Agar konten bisa memanjang */
+    overflow-y: auto; /* Izinkan scroll vertikal */
+    height: calc(100vh - 30px); /* Tinggi pas layar */
+    padding: 0 8%; /* Padding samping saja */
     position: relative;
+    z-index: 1;
+    scroll-behavior: smooth;
+}
+
+
+#home {
+    height: calc(100vh - 30px); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* SECTION LAIN (Project, Cert, Org): Mulai dari atas dan bisa memanjang */
+.section:not(#home) {
+    min-height: 100%; 
+    padding: 80px 0; /* Jarak atas bawah agar tidak mepet saat scroll */
+    display: none; /* Default sembunyi, diatur JS */
+}
+
+/* Scrollbar Minimalis */
+.main-window::-webkit-scrollbar {
+    width: 6px;
+}
+.main-window::-webkit-scrollbar-track {
+    background: transparent;
+}
+.main-window::-webkit-scrollbar-thumb {
+    background: var(--text);
+    border-radius: 10px;
 }
 
 .theme-btn {
@@ -231,4 +264,29 @@ body {
     .main-window { margin: 10px 0 0 0; padding: 40px 20px; }
     .grid-container, .cert-grid { grid-template-columns: 1fr; }
     .pixel-title { font-size: 2.5rem; }
+}
+
+/* --- 10. PROJECT FILTER --- */
+.project-filter {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--text);
+    color: var(--text);
+    padding: 5px 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--text);
+    color: var(--bg);
+    box-shadow: 4px 4px 0px var(--accent);
 }

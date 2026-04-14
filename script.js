@@ -91,3 +91,78 @@ interactiveElements.forEach(el => {
         cursor.style.backgroundColor = 'transparent';
     });
 });
+
+
+// 5. Filter proyek
+function renderProjects(filter = 'All') {
+    const grid = document.getElementById('project-grid');
+    grid.innerHTML = ''; // Kosongkan grid
+
+    const filtered = filter === 'All' 
+        ? projectsData 
+        : projectsData.filter(p => p.category === filter);
+
+    filtered.forEach(project => {
+        const card = `
+            <a href="${project.link}" target="_blank" class="dense-card">
+                <div class="card-header">
+                    <p class="tag">${project.tag}</p>
+                    <h3>${project.title}</h3>
+                    <p class="sub-text">${project.subText}</p>
+                </div>
+                <ul class="card-list">
+                    ${project.points.map(point => `<li>${point}</li>`).join('')}
+                </ul>
+                <div class="card-footer">
+                    <p class="tools-text">Tools: ${project.tools}</p>
+                </div>
+            </a>
+        `;
+        grid.innerHTML += card;
+    });
+}
+
+
+// Fungsi Filter
+function filterProjects(category) {
+    // Update button active state
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText === category.toUpperCase() || (category === 'All' && btn.innerText === 'ALL')) {
+            btn.classList.add('active');
+        }
+    });
+    
+    renderProjects(category);
+}
+
+// Panggil render pertama kali saat file di-load
+document.addEventListener('DOMContentLoaded', () => {
+    renderProjects();
+});
+
+function show(id) {
+    // 1. Sembunyikan semua section dulu
+    document.querySelectorAll('.section').forEach(s => {
+        s.style.display = 'none';
+    });
+
+    // 2. Munculkan yang dipilih dengan tipe display yang benar
+    const target = document.getElementById(id);
+    if (id === 'home') {
+        target.style.display = 'flex'; // Agar tetap di tengah
+    } else {
+        target.style.display = 'block'; // Agar bisa memanjang ke bawah
+    }
+
+    // 3. Update status tombol di Navbar
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + id).classList.add('active');
+
+    document.querySelector('.main-window').scrollTop = 0;
+}
+
+// Jalankan Home pertama kali
+document.addEventListener('DOMContentLoaded', () => {
+    show('home');
+});

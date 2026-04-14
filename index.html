@@ -63,53 +63,18 @@
             </section>
 
             <section id="project" class="section hidden">
-            <h2 class="pixel-title-small">SELECTED_PROJECTS</h2>
-            <div class="grid-container">
-                <a href="https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor" 
-                    target="_blank"
-                    class="dense-card">
-                        
-                        <div class="card-header">
-                            <p class="tag">Projek Pribadi</p>
-                            <h3>Music Recommendation System</h3>
-                            <p class="sub-text">ANN Approach (Annoy, FAISS, HNSW)</p>
-                        </div>
-
-                        <ul class="card-list">
-                            <li>Membangun sistem rekomendasi musik berbasis similarity search menggunakan ANN.</li>
-                            <li>Evaluasi Recall@K, latency, dan indexing time.</li>
-                            <li>Analisis trade-off kecepatan vs akurasi.</li>
-                        </ul>
-
-                        <div class="card-footer">
-                            <p class="tools-text">Tools: Python, Annoy, FAISS, HNSW</p>
-                        </div>
-                </a>
-
-                <a href="https://github.com/Syahru1/SIP-PREMARLO-2025"
-                    target="_blank"
-                    class="dense-card">
-
-                        <div class="card-header">
-                            <p class="tag">Tugas Akhir Semester 4</p>
-                            <h3>Web Development with Laravel</h3>
-                            <p class="sub-text">Posisi: Backend Developer</p>
-                        </div>
-
-                        <ul class="card-list">
-                            <li>Merancang skema database relasional (ERD, normalisasi tabel) sesuai kebutuhan sistem.</li>
-                            <li>Mengimplementasikan backend menggunakan Laravel (MVC, routing, controller).</li>
-                            <li>Mengelola integrasi database MySQL dengan backend.</li>
-                        </ul>
-
-                        <div class="card-footer">
-                            <p class="tools-text">Tools: Laravel, PHP, MySQL, SQL</p>
-                        </div>
-
-                </a>
-            </div>
+                <h2 class="pixel-title-small">SELECTED_PROJECTS</h2>
             
-        </section>
+                    <div class="project-filter">
+                        <button class="filter-btn active" onclick="filterProjects('All')">ALL</button>
+                        <button class="filter-btn" onclick="filterProjects('AI/ML')">AI/ML</button>
+                        <button class="filter-btn" onclick="filterProjects('Web Development')">WEB DEV</button>
+                        <button class="filter-btn" onclick="filterProjects('Data Analysis')">DATA ANALYSIS</button>
+                    </div>
+
+                    <div class="grid-container" id="project-grid"></div>
+            
+            </section>
 
             <section id="cert" class="section hidden">
                 <h2 class="pixel-title-small">CERTIFICATIONS</h2>
@@ -152,6 +117,7 @@
         </main>
     </div>
 
+    <script src="project.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
