@@ -128,7 +128,10 @@ function filterProjects(category) {
     // Update button active state
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.innerText === category.toUpperCase() || (category === 'All' && btn.innerText === 'ALL')) {
+        
+        // Ambil teks tombol dan sesuaikan dengan argumen category
+        // Menggunakan perbandingan sederhana yang lebih aman
+        if (btn.getAttribute('onclick').includes(`'${category}'`)) {
             btn.classList.add('active');
         }
     });
@@ -165,4 +168,5 @@ function show(id) {
 // Jalankan Home pertama kali
 document.addEventListener('DOMContentLoaded', () => {
     show('home');
+    renderProjects();
 });
