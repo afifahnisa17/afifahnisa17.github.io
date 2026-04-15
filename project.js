@@ -1,7 +1,7 @@
 const projectsData = [
     {
         title: "Music Recommendation System",
-        category: "AI/ML",
+        category: "AI & Data Science",
         tag: "Projek Pribadi",
         subText: "ANN Approach (Annoy, FAISS, HNSW)",
         points: [
@@ -14,7 +14,7 @@ const projectsData = [
     },
     {
         title: "SLM Document Intelligence System",
-        category: "AI/ML",
+        category: "AI & Data Science",
         tag: "Projek Pribadi (On Progress)",
         subText: "SLM + RAG (Chroma, Embedding, Retrieval)",
         points: [
@@ -28,7 +28,7 @@ const projectsData = [
     },
     {
         title: "Web Development with Laravel",
-        category: "Web Development",
+        category: "Software Eng",
         tag: "Tugas Akhir Semester 4",
         subText: "Posisi: Backend Developer",
         points: [
@@ -41,7 +41,7 @@ const projectsData = [
     },
     {
         title: "FINALIS JTI - Sistem Bebas Tanggungan TA",
-        category: "Web Development",
+        category: "Software Eng",
         tag: "Tugas Akhir Semester 3",
         subText: "Posisi: Database Designer",
         points: [
@@ -51,5 +51,19 @@ const projectsData = [
         ],
         tools: "PHP Native, MS SQL Server, SQL",
         link: "https://github.com/andromeda-hebat/FINALIS-JTI-WEB"
-    }
+    },
+    {
+        title: "Music Recommendation System (MLOps & QA Suite)",
+        category: "MLOps & QA",
+        tag: "Projek Pribadi",
+        subText: "Automated Testing & CI/CD Pipeline",
+        points: [
+            "Mengimplementasikan Automated Testing menggunakan Pytest dan Streamlit AppTest untuk memvalidasi integritas UI dan logika rekomendasi.",
+            "Merancang CI/CD Pipeline dengan GitHub Actions guna memastikan setiap perubahan kode melewati tahap validasi otomatis sebelum masuk ke tahap rilis.",
+            "Menerapkan Software Versioning dan Release Management (v1.0.0) untuk menjaga stabilitas snapshot model dan kode.",
+            "Melakukan automated benchmarking untuk memonitor performa indexing time dan latency secara konsisten."
+        ],
+        tools: "GitHub Actions, Pytest, Streamlit, Git, Python",
+        link: "https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor"
+    },
 ];
