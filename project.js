@@ -9,7 +9,7 @@ const projectsData = [
             "Evaluasi Recall@K, latency, dan indexing time.",
             "Analisis trade-off kecepatan vs akurasi."
         ],
-        tools: "Python, Annoy, FAISS, HNSW",
+        tools: "Streamlit, Python, Annoy, FAISS, HNSW",
         link: "https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor"
     },
     {
