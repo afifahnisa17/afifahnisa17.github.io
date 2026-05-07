@@ -170,3 +170,30 @@ document.addEventListener('DOMContentLoaded', () => {
     show('home');
     renderProjects();
 });
+
+const card = `
+    <div class="dense-card">
+        <div class="card-image-container">
+            <img src="${project.image}" alt="${project.title}" class="project-img">
+        </div>
+
+        <div class="card-header">
+            <p class="tag">${project.tag}</p>
+            <h3>${project.title}</h3>
+            <p class="sub-text">${project.subText}</p>
+        </div>
+
+        <ul class="card-list">
+            ${project.points.map(point => `<li>${point}</li>`).join('')}
+        </ul>
+
+        <details class="project-details">
+            <summary>View Technical Analysis</summary>
+            <div class="details-content">
+                <p><strong>Architecture:</strong> ${project.architecture}</p>
+                <p><strong>Benchmark:</strong> ${project.benchmark}</p>
+                <a href="${project.link}" target="_blank" class="github-link">View Repository</a>
+            </div>
+        </details>
+    </div>
+`;

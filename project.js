@@ -12,20 +12,20 @@ const projectsData = [
         tools: "Streamlit, Python, Annoy, FAISS, HNSW",
         link: "https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor"
     },
-    {
-        title: "SLM Document Intelligence System",
-        category: "AI & Data Science",
-        tag: "Projek Pribadi (On Progress)",
-        subText: "SLM + RAG (Chroma, Embedding, Retrieval)",
-        points: [
-            "Membangun sistem document intelligence berbasis SLM untuk memahami dan memproses dokumen secara offline.",
-            "Mengimplementasikan pipeline RAG: parsing PDF, chunking, embedding, dan semantic retrieval menggunakan vector database.",
-            "Mengembangkan fitur Q&A berbasis konteks dokumen dengan pendekatan retrieval-augmented generation.",
-            "Merancang sistem yang privacy-first dengan local inference tanpa ketergantungan API eksternal."
-        ],
-        tools: "Python, Streamlit, Ollama, ChromaDB",
-        link: "https://github.com/afifahnisa17/slm-document-intelligence"
-    },
+    // {
+    //     title: "SLM Document Intelligence System",
+    //     category: "AI & Data Science",
+    //     tag: "Projek Pribadi (On Progress)",
+    //     subText: "SLM + RAG (Chroma, Embedding, Retrieval)",
+    //     points: [
+    //         "Membangun sistem document intelligence berbasis SLM untuk memahami dan memproses dokumen secara offline.",
+    //         "Mengimplementasikan pipeline RAG: parsing PDF, chunking, embedding, dan semantic retrieval menggunakan vector database.",
+    //         "Mengembangkan fitur Q&A berbasis konteks dokumen dengan pendekatan retrieval-augmented generation.",
+    //         "Merancang sistem yang privacy-first dengan local inference tanpa ketergantungan API eksternal."
+    //     ],
+    //     tools: "Python, Streamlit, Ollama, ChromaDB",
+    //     link: "https://github.com/afifahnisa17/slm-document-intelligence"
+    // },
     {
         title: "Web Development with Laravel",
         category: "Software Eng",

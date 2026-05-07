@@ -256,7 +256,7 @@ body {
 }
 
 /* --- 6. PROJECTS & EXPERIENCE (Pisah) --- */
-.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .dense-card, .org-card {
     display:block;
     background: var(--card-bg);
