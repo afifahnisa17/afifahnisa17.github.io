@@ -10,9 +10,8 @@ function show(id) {
 // 2. Typed.js - AI/Data Roles
 new Typed('#typed', {
     strings: [
+        'WEB DEVELOPER',
         'AI/ML ENGINEER',
-        'DATA ANALYST',
-        'BACKEND WEB DEVELOPER'
     ],
     typeSpeed: 60,
     backSpeed: 40,
@@ -44,56 +43,44 @@ if (localStorage.getItem('theme') === 'dark') {
     themeIcon.innerText = '☀️';
 }
 
-// 4. Custom Cursor & Data Trail
-const cursor = document.createElement('div');
-cursor.id = 'custom-cursor';
-document.body.appendChild(cursor);
-
-document.addEventListener('mousemove', (e) => {
-    // Smooth cursor movement
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-
-    // Random Binary Trail
-    if (Math.random() > 0.88) {
-        const trail = document.createElement('span');
-        trail.className = 'data-trail';
-        trail.innerText = Math.round(Math.random());
-        trail.style.left = e.clientX + (Math.random() * 20 - 10) + 'px';
-        trail.style.top = e.clientY + (Math.random() * 20 - 10) + 'px';
-        document.body.appendChild(trail);
-
-        setTimeout(() => trail.remove(), 800);
-    }
-});
-
-// Cursor Interactions
-document.addEventListener('mousedown', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
-});
-
-document.addEventListener('mouseup', () => {
-    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-});
-
-// Hover Effect on Interactive Elements
-const interactiveElements = document.querySelectorAll('button, a, .dense-card, span');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.style.width = '40px';
-        cursor.style.height = '40px';
-        cursor.style.borderColor = 'var(--accent)';
-        cursor.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
-    });
-    el.addEventListener('mouseleave', () => {
-        cursor.style.width = '22px';
-        cursor.style.height = '22px';
-        cursor.style.backgroundColor = 'transparent';
-    });
-});
-
-
 // 5. Filter proyek
+function createProjectThumbnail(project) {
+    if (project.image) {
+        return project.image;
+    }
+
+    const safeTitle = project.title.replace(/[&<>]/g, '').trim();
+    const safeTag = project.category.replace(/[&<>]/g, '').trim();
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="${safeTitle}">
+            <defs>
+                <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1A3C34"/>
+                    <stop offset="55%" stop-color="#3E6B5E"/>
+                    <stop offset="100%" stop-color="#FF6B6B"/>
+                </linearGradient>
+                <radialGradient id="glow" cx="35%" cy="25%" r="65%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.22)"/>
+                    <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </radialGradient>
+            </defs>
+            <rect width="960" height="720" fill="url(#bg)"/>
+            <rect width="960" height="720" fill="url(#glow)"/>
+            <circle cx="790" cy="140" r="90" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="180" cy="560" r="150" fill="rgba(255,255,255,0.08)"/>
+            <rect x="72" y="76" width="816" height="568" rx="42" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)"/>
+            <text x="120" y="172" fill="#F7FFF9" font-family="JetBrains Mono, monospace" font-size="34" font-weight="700">${safeTag}</text>
+            <text x="120" y="252" fill="#F7FFF9" font-family="JetBrains Mono, monospace" font-size="60" font-weight="700">${safeTitle}</text>
+            <text x="120" y="338" fill="rgba(247,255,249,0.92)" font-family="JetBrains Mono, monospace" font-size="28">Project thumbnail</text>
+            <rect x="120" y="408" width="240" height="16" rx="8" fill="rgba(247,255,249,0.68)"/>
+            <rect x="120" y="446" width="360" height="16" rx="8" fill="rgba(247,255,249,0.48)"/>
+            <rect x="120" y="484" width="280" height="16" rx="8" fill="rgba(247,255,249,0.32)"/>
+        </svg>
+    `;
+
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 function renderProjects(filter = 'All') {
     const grid = document.getElementById('project-grid');
     grid.innerHTML = ''; // Kosongkan grid
@@ -104,19 +91,29 @@ function renderProjects(filter = 'All') {
 
     filtered.forEach(project => {
         const card = `
-            <a href="${project.link}" target="_blank" class="dense-card">
+            <article class="dense-card">
+                <div class="card-image-container">
+                    <img src="${createProjectThumbnail(project)}" alt="${project.title}" class="project-img" loading="lazy">
+                </div>
+                <div class="card-badges">
+                    <span class="badge badge--type">${project.tag}</span>
+                    <span class="badge badge--category">${project.category}</span>
+                </div>
                 <div class="card-header">
-                    <p class="tag">${project.tag}</p>
                     <h3>${project.title}</h3>
                     <p class="sub-text">${project.subText}</p>
                 </div>
-                <ul class="card-list">
-                    ${project.points.map(point => `<li>${point}</li>`).join('')}
-                </ul>
-                <div class="card-footer">
-                    <p class="tools-text">Tools: ${project.tools}</p>
-                </div>
-            </a>
+                <details class="project-details">
+                    <summary class="project-summary">Baca selengkapnya</summary>
+                    <div class="details-content">
+                        <ul class="card-list card-list--compact">
+                            ${project.points.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                        <p class="tools-inline"><strong>Tools:</strong> ${project.tools}</p>
+                        <a href="${project.link}" target="_blank" class="github-link project-link-btn">Lihat proyek</a>
+                    </div>
+                </details>
+            </article>
         `;
         grid.innerHTML += card;
     });
@@ -144,6 +141,29 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 });
 
+// Handle details toggle - hanya satu project bisa buka sekaligus
+document.addEventListener('toggle', (event) => {
+    if (!event.target.classList.contains('project-details')) {
+        return;
+    }
+
+    const currentDetails = event.target;
+    const currentCard = currentDetails.closest('.dense-card');
+
+    if (currentDetails.open) {
+        // Tutup semua details yang lain
+        document.querySelectorAll('.project-details[open]').forEach((details) => {
+            if (details !== currentDetails) {
+                details.removeAttribute('open');
+                details.closest('.dense-card')?.classList.remove('is-expanded');
+            }
+        });
+        currentCard?.classList.add('is-expanded');
+    } else {
+        currentCard?.classList.remove('is-expanded');
+    }
+}, true);
+
 function show(id) {
     // 1. Sembunyikan semua section dulu
     document.querySelectorAll('.section').forEach(s => {
@@ -170,30 +190,3 @@ document.addEventListener('DOMContentLoaded', () => {
     show('home');
     renderProjects();
 });
-
-const card = `
-    <div class="dense-card">
-        <div class="card-image-container">
-            <img src="${project.image}" alt="${project.title}" class="project-img">
-        </div>
-
-        <div class="card-header">
-            <p class="tag">${project.tag}</p>
-            <h3>${project.title}</h3>
-            <p class="sub-text">${project.subText}</p>
-        </div>
-
-        <ul class="card-list">
-            ${project.points.map(point => `<li>${point}</li>`).join('')}
-        </ul>
-
-        <details class="project-details">
-            <summary>View Technical Analysis</summary>
-            <div class="details-content">
-                <p><strong>Architecture:</strong> ${project.architecture}</p>
-                <p><strong>Benchmark:</strong> ${project.benchmark}</p>
-                <a href="${project.link}" target="_blank" class="github-link">View Repository</a>
-            </div>
-        </details>
-    </div>
-`;

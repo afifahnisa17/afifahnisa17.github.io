@@ -4,64 +4,73 @@ const projectsData = [
         category: "AI & Data Science",
         tag: "Projek Pribadi",
         subText: "ANN Approach (Annoy, FAISS, HNSW)",
+        image: "assets/music_project.png",
         points: [
-            "Membangun sistem rekomendasi musik berbasis similarity search menggunakan ANN.",
-            "Evaluasi Recall@K, latency, dan indexing time.",
-            "Analisis trade-off kecepatan vs akurasi."
+            "Membangun sistem rekomendasi musik berbasis ANN.",
+            "Membandingkan performa Annoy, FAISS, dan HNSW.",
+            "Evaluasi Recall@K, latency, dan indexing time."
         ],
         tools: "Streamlit, Python, Annoy, FAISS, HNSW",
         link: "https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor"
     },
+
     // {
     //     title: "SLM Document Intelligence System",
     //     category: "AI & Data Science",
     //     tag: "Projek Pribadi (On Progress)",
     //     subText: "SLM + RAG (Chroma, Embedding, Retrieval)",
+    //     image: "",
     //     points: [
-    //         "Membangun sistem document intelligence berbasis SLM untuk memahami dan memproses dokumen secara offline.",
-    //         "Mengimplementasikan pipeline RAG: parsing PDF, chunking, embedding, dan semantic retrieval menggunakan vector database.",
-    //         "Mengembangkan fitur Q&A berbasis konteks dokumen dengan pendekatan retrieval-augmented generation.",
-    //         "Merancang sistem yang privacy-first dengan local inference tanpa ketergantungan API eksternal."
+    //         "Membangun sistem document intelligence berbasis SLM.",
+    //         "Mengimplementasikan pipeline RAG untuk semantic retrieval.",
+    //         "Mengembangkan fitur Q&A berbasis dokumen.",
+    //         "Menerapkan local inference tanpa API eksternal."
     //     ],
     //     tools: "Python, Streamlit, Ollama, ChromaDB",
     //     link: "https://github.com/afifahnisa17/slm-document-intelligence"
     // },
+
     {
         title: "Web Development with Laravel",
         category: "Software Eng",
         tag: "Tugas Akhir Semester 4",
         subText: "Posisi: Backend Developer",
+        image: "",
         points: [
-            "Merancang skema database relasional (ERD, normalisasi tabel) sesuai kebutuhan sistem.",
-            "Mengimplementasikan backend menggunakan Laravel (MVC, routing, controller).",
-            "Mengelola integrasi database MySQL dengan backend."
+            "Merancang database relasional untuk sistem.",
+            "Mengembangkan backend Laravel berbasis MVC.",
+            "Mengintegrasikan backend dengan MySQL."
         ],
         tools: "Laravel, PHP, MySQL, SQL",
         link: "https://github.com/Syahru1/SIP-PREMARLO-2025"
     },
+
     {
         title: "FINALIS JTI - Sistem Bebas Tanggungan TA",
         category: "Software Eng",
         tag: "Tugas Akhir Semester 3",
         subText: "Posisi: Database Designer",
+        image: "",
         points: [
-            "Merancang arsitektur database relasional yang kompleks menggunakan Microsoft SQL Server.",
-            "Mengimplementasikan normalisasi database untuk menjamin integritas data sistem tugas akhir.",
-            "Mengoptimalkan kueri SQL untuk efisiensi pengambilan data pada arsitektur MVC."
+            "Merancang database kompleks dengan MS SQL Server.",
+            "Menerapkan normalisasi database.",
+            "Mengoptimalkan query SQL sistem."
         ],
         tools: "PHP Native, MS SQL Server, SQL",
         link: "https://github.com/andromeda-hebat/FINALIS-JTI-WEB"
     },
+
     {
         title: "Music Recommendation System (MLOps & QA Suite)",
         category: "MLOps & QA",
         tag: "Projek Pribadi",
         subText: "Automated Testing & CI/CD Pipeline",
+        image: "",
         points: [
-            "Mengimplementasikan Automated Testing menggunakan Pytest dan Streamlit AppTest untuk memvalidasi integritas UI dan logika rekomendasi.",
-            "Merancang CI/CD Pipeline dengan GitHub Actions guna memastikan setiap perubahan kode melewati tahap validasi otomatis sebelum masuk ke tahap rilis.",
-            "Menerapkan Software Versioning dan Release Management (v1.0.0) untuk menjaga stabilitas snapshot model dan kode.",
-            "Melakukan automated benchmarking untuk memonitor performa indexing time dan latency secara konsisten."
+            "Mengimplementasikan automated testing dengan Pytest.",
+            "Membangun CI/CD pipeline menggunakan GitHub Actions.",
+            "Menerapkan versioning dan release management.",
+            "Monitoring performa indexing dan latency."
         ],
         tools: "GitHub Actions, Pytest, Streamlit, Git, Python",
         link: "https://github.com/afifahnisa17/music-similarity-search-approximate-nearest-neighbor"
