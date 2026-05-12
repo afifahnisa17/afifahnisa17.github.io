@@ -261,14 +261,14 @@ body {
 }
 
 /* --- 6. PROJECTS & EXPERIENCE (Pisah) --- */
-.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+.grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
 .dense-card, .org-card {
     display: flex;
     flex-direction: column;
     background: var(--card-bg);
-    padding: 14px;
+    padding: 11px;
     border: 2px solid var(--text);
-    border-radius: 18px;
+    border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
     color: inherit;
@@ -292,10 +292,10 @@ body {
 }
 .card-image-container {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 5 / 3;
     overflow: hidden;
-    border-radius: 14px;
-    margin-bottom: 12px;
+    border-radius: 12px;
+    margin-bottom: 9px;
     background: linear-gradient(135deg, rgba(26, 60, 52, 0.14), rgba(255, 107, 107, 0.12));
     border: 1px solid rgba(26, 60, 52, 0.2);
     position: relative;
@@ -322,18 +322,18 @@ body {
 }
 .card-badges {
     display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 6px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 .badge {
     display: inline-flex;
     align-items: center;
-    padding: 6px 11px;
-    font-size: 0.72rem;
+    padding: 5px 9px;
+    font-size: 0.68rem;
     font-weight: 700;
     border-radius: 999px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     transition: all 0.25s ease;
 }
 .badge--type {
@@ -356,16 +356,16 @@ body {
 }
 .card-header h3 {
     margin-top: 0;
-    margin-bottom: 6px;
-    line-height: 1.15;
-    font-size: 1.2rem;
+    margin-bottom: 4px;
+    line-height: 1.1;
+    font-size: 1.05rem;
 }
 .sub-text {
-    font-size: 0.8rem;
-    line-height: 1.45;
+    font-size: 0.75rem;
+    line-height: 1.4;
     opacity: 0.9;
 }
-.card-list { list-style: none; margin: 14px 0 12px; font-size: 0.78rem; line-height: 1.5; }
+.card-list { list-style: none; margin: 10px 0 8px; font-size: 0.74rem; line-height: 1.4; }
 .card-list--compact {
     margin-top: 0;
     margin-bottom: 0;
@@ -374,17 +374,17 @@ body {
 .project-details {
     margin-top: auto;
     border-top: 1px solid rgba(26, 60, 52, 0.18);
-    padding-top: 12px;
+    padding-top: 9px;
 }
 .project-summary {
     list-style: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.73rem;
+    gap: 6px;
+    font-size: 0.70rem;
     font-weight: 700;
     color: var(--accent);
-    padding: 7px 12px;
+    padding: 6px 10px;
     border: 1px solid var(--accent);
     border-radius: 999px;
     background: rgba(255, 107, 107, 0.08);
@@ -405,13 +405,13 @@ body {
     content: '▴';
 }
 .details-content {
-    padding-top: 12px;
+    padding-top: 9px;
     display: grid;
-    gap: 10px;
+    gap: 8px;
 }
 .details-content p {
-    font-size: 0.76rem;
-    line-height: 1.6;
+    font-size: 0.74rem;
+    line-height: 1.5;
 }
 .tools-inline {
     opacity: 0.9;
@@ -419,12 +419,13 @@ body {
 .project-link-btn {
     display: inline-flex;
     width: fit-content;
-    margin-top: 2px;
-    padding: 8px 12px;
+    margin-top: 0;
+    padding: 6px 10px;
     border: 1px solid var(--text);
     border-radius: 999px;
     background: rgba(26, 60, 52, 0.06);
     text-decoration: none;
+    font-size: 0.73rem;
     transition: all 0.25s ease;
 }
 .project-link-btn:hover {
