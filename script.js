@@ -110,7 +110,10 @@ function renderProjects(filter = 'All') {
                             ${project.points.map(point => `<li>${point}</li>`).join('')}
                         </ul>
                         <p class="tools-inline"><strong>Tools:</strong> ${project.tools}</p>
-                        <a href="${project.link}" target="_blank" class="github-link project-link-btn">Lihat proyek</a>
+                        <div class="project-links">
+                            <a href="${project.link}" target="_blank" class="github-link project-link-btn">Lihat proyek</a>
+                            <a href="${project.doc}" target="_blank" class="github-link project-link-btn">Dokumentasi</a>
+                        </div>
                     </div>
                 </details>
             </article>
